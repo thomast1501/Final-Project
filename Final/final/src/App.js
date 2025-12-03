@@ -16,16 +16,17 @@ function Block({ name, image, description, hardness, stackSize }) {
 
 // ---- Search Component ----
 function Search() {
-  const [name, setName] = useState("cactus");
+  const [name, setName] = useState("Cactus");
   const [block, setBlock] = useState(null);
-  const [image,setimage]=useState("");
-  const [description,setdescription]=useState("");
-  const [hardness,sethardness]=useState("");
-  const [stackSize,setstackSize]=useState("");
+  const [image, setimage] = useState("");
+  const [description, setdescription] = useState("");
+  const [hardness, sethardness] = useState("");
+  const [stackSize, setstackSize] = useState("");
+
   async function fetchBlock() {
     try {
       const response = await fetch(
-        `https://minecraft-api.vercel.app/api/blocks?name={name}`
+        `https://minecraft-api.vercel.app/api/blocks?name=${name}`
       );
 
       if (!response.ok) {
@@ -33,12 +34,17 @@ function Search() {
       }
 
       const data = await response.json();
-
-      // API returns an array — grab the first result
-      console.log(data);
       const blockData = data[0];
+
       setBlock(blockData);
-      setimage(blockData.image);
+
+      // ✅ FIX: make sure image is a full URL
+      setimage(
+        blockData.image.startsWith("http")
+          ? blockData.image
+          : `https://minecraft-api.vercel.app${blockData.image}`
+      );
+
       setdescription(blockData.description);
       sethardness(blockData.hardness);
       setstackSize(blockData.stackSize);
@@ -65,15 +71,13 @@ function Search() {
 
       <button onClick={fetchBlock}>Search</button>
 
-       (
-        <Block
-          name={name}
-          image={image}
-          description={description}
-          hardness={hardness}
-          stackSize={stackSize}
-        />
-      ) 
+      <Block
+        name={name}
+        image={image}
+        description={description}
+        hardness={hardness}
+        stackSize={stackSize}
+      />
     </div>
   );
 }
@@ -82,6 +86,9 @@ function Search() {
 function App() {
   return (
     <div className="App">
+      <header>
+        <img src="MClogo.webp" alt="Minecraft Logo" width={400} />
+      </header>
       <Search />
     </div>
   );

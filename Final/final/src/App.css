@@ -3,7 +3,7 @@
 }
 
 
-.Pokemon-card {
+.block-info {
   background-color: #f8f8f8;
   color: #333;
   border: 2px solid #ccc;
@@ -21,7 +21,7 @@
 }
 
 
-.Pokemon-card img {
+.block-info img {
   width: 250px;
   height: 250px; 
   object-fit: cover;
