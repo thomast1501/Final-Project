@@ -16,7 +16,7 @@ function Block({ name, image, description, hardness, stackSize }) {
 
 // ---- Search Component ----
 function Search() {
-  const [name, setName] = useState("stone");
+  const [name, setName] = useState("cactus");
   const [block, setBlock] = useState(null);
   const [image,setimage]=useState("");
   const [description,setdescription]=useState("");
