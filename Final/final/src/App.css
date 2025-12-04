@@ -4,7 +4,7 @@
 
 
 .block-info {
-  background-color: #f8f8f8;
+  background-color: #908e8e;
   color: #333;
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -53,7 +53,7 @@
 
 .button {
   background-color: #4CAF50; 
-  border: black;
+  border: rgb(91, 16, 16);
   color: white;
   padding: 15px 32px;
   text-align: center;

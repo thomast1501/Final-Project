@@ -38,7 +38,7 @@ function Search() {
 
       setBlock(blockData);
 
-      // ✅ FIX: make sure image is a full URL
+      
       setimage(
         blockData.image.startsWith("http")
           ? blockData.image
@@ -61,6 +61,7 @@ function Search() {
   return (
     <div>
       <h1>Minecraft Block Finder</h1>
+      <p>Make Sure to capitalize the first letter!</p>
 
       <input
         type="text"
