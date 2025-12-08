@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-// ---- Minecraft Block Card ----
+// Minecraft images
 function Block({ name, image, description, hardness, stackSize }) {
   return (
     <div className="Minecraft-blocks">
@@ -14,7 +14,7 @@ function Block({ name, image, description, hardness, stackSize }) {
   );
 }
 
-// ---- Search Component ----
+// how to search for blocks
 function Search() {
   const [name, setName] = useState("Cactus");
   const [block, setBlock] = useState(null);
@@ -83,7 +83,7 @@ function Search() {
   );
 }
 
-// ---- App Component ----
+// app stuff
 function App() {
   return (
     <div className="App">
